@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class KomplainView extends StatefulWidget {
+class KomplainClientView extends StatefulWidget {
   @override
   _KomplainViewState createState() => _KomplainViewState();
 }
 
-class _KomplainViewState extends State<KomplainView> {
+class _KomplainViewState extends State<KomplainClientView> {
   final List<Map<String, dynamic>> komplainData = [
     {
       "name": "Riyo",

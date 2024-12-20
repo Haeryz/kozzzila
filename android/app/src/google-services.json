@@ -1,0 +1,54 @@
+{
+    "project_info": {
+      "project_number": "373279676922",
+      "project_id": "kozzzila",
+      "storage_bucket": "kozzzila.firebasestorage.app"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:373279676922:android:3c1bd697538ff3cd256c43",
+          "android_client_info": {
+            "package_name": "com.example.kozzzila"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "373279676922-bj45tot1ps7t55sac5aktgcmvbbjjkc5.apps.googleusercontent.com",
+            "client_type": 1,
+            "android_info": {
+              "package_name": "com.example.kozzzila",
+              "certificate_hash": "c6d00e27c7aa387f224207bdeb605270de53d36d"
+            }
+          },
+          {
+            "client_id": "373279676922-vjbk46dp63n8fbe62jjm06pnuck03s8t.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyDKQVDoccz2gpOAUlNkJbJci4gMcDMTL6g"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "373279676922-bnj9fmj0cpdb15drtc6d0dclbb23fgam.apps.googleusercontent.com",
+                "client_type": 3
+              },
+              {
+                "client_id": "373279676922-nqojkjnujct399ta12v4l1878a7mgjcu.apps.googleusercontent.com",
+                "client_type": 2,
+                "ios_info": {
+                  "bundle_id": "com.example.kozzzila"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }

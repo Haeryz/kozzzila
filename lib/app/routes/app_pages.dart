@@ -24,7 +24,8 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes
+      .HOME_CLIENT; //ganti dengan Routes.HOME jika ingin menggunakan home biasa
 
   static final routes = [
     GetPage(
