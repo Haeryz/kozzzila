@@ -1,67 +1,93 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'dart:io';
+
+import '../controllers/kosan_client_controller.dart';
 
 class KosanClientView extends StatelessWidget {
+  final KosanClientController controller = Get.put(KosanClientController());
+
   @override
   Widget build(BuildContext context) {
+    controller.loadData(); // Muat data saat aplikasi dibuka
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Kamar'),
         backgroundColor: Colors.cyan,
         actions: [
           IconButton(
-            icon: Icon(Icons.filter_alt_outlined),
-            onPressed: () {},
+            icon: Icon(Icons.save),
+            onPressed: controller.saveData, // Simpan data saat ikon disimpan ditekan
           ),
         ],
       ),
       body: SingleChildScrollView(
-        // Tambahkan ini untuk membuat konten bisa digulir
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors.grey[300],
-                    child: Icon(Icons.person, size: 40, color: Colors.grey),
-                  ),
-                  Positioned(
-                    bottom: -4,
-                    right: -4,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.camera_alt),
-                      color: Colors.black54,
+              child: Obx(() {
+                return Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundColor: Colors.grey[300],
+                      backgroundImage: controller.selectedImage.value != null
+                          ? FileImage(controller.selectedImage.value!)
+                          : null,
+                      child: controller.selectedImage.value == null
+                          ? Icon(Icons.person, size: 40, color: Colors.grey)
+                          : null,
                     ),
-                  ),
-                ],
-              ),
+                    Positioned(
+                      bottom: -4,
+                      right: -4,
+                      child: IconButton(
+                        onPressed: controller.pickImage, // Pilih gambar
+                        icon: Icon(Icons.camera_alt),
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
+                );
+              }),
             ),
             SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Nama',
-                border: OutlineInputBorder(),
-              ),
-            ),
+            Obx(() {
+              return TextField(
+                decoration: InputDecoration(
+                  labelText: 'Nama',
+                  border: OutlineInputBorder(),
+                ),
+                controller: TextEditingController(text: controller.name.value),
+                onChanged: (value) => controller.name.value = value,
+              );
+            }),
             SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'No. HP',
-                border: OutlineInputBorder(),
-              ),
-            ),
+            Obx(() {
+              return TextField(
+                decoration: InputDecoration(
+                  labelText: 'No. HP',
+                  border: OutlineInputBorder(),
+                ),
+                controller: TextEditingController(text: controller.phone.value),
+                onChanged: (value) => controller.phone.value = value,
+              );
+            }),
             SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'NIK',
-                border: OutlineInputBorder(),
-              ),
-            ),
+            Obx(() {
+              return TextField(
+                decoration: InputDecoration(
+                  labelText: 'NIK',
+                  border: OutlineInputBorder(),
+                ),
+                controller: TextEditingController(text: controller.nik.value),
+                onChanged: (value) => controller.nik.value = value,
+              );
+            }),
             SizedBox(height: 32),
             Container(
               padding: EdgeInsets.all(16.0),

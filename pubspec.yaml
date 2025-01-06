@@ -46,7 +46,10 @@ dependencies:
   google_sign_in: ^6.2.2
   intl_utils: ^2.8.7
   google_nav_bar: ^5.0.7
+  image_picker: ^1.1.2
+  shared_preferences: ^2.3.5
   get_storage: ^2.1.1
+
 
 dev_dependencies:
   flutter_test:
